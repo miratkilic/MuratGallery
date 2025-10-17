@@ -1,0 +1,132 @@
+/* ======== Общие стили ======== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ======== Главная страница ======== */
+.home .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.title span {
+  color: #00bcd4;
+  text-shadow: 0 0 10px #00bcd4;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: #00bcd4;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #00bcd4;
+}
+
+.btn:hover {
+  background: #0097a7;
+  box-shadow: 0 0 25px #00bcd4;
+  transform: scale(1.05);
+}
+
+/* ======== Галерея ======== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #00bcd4;
+}
+
+.back-btn {
+  color: #00bcd4;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.back-btn:hover {
+  color: #00e5ff;
+}
+
+.gallery {
+  padding: 40px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: zoomFade 1.5s ease forwards;
+  opacity: 0;
+}
+
+/* Zoom при наведении */
+.photo-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
+}
+
+/* ======== Анимации ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomFade {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ======== Адаптив ======== */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .gallery {
+    padding: 20px;
+  }
+}
