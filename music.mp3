@@ -1,0 +1,19 @@
+<button id="loginBtn">Войти</button>
+
+<script>
+  document.getElementById("loginBtn").addEventListener("click", function() {
+    // Проверка пароля
+    const password = document.getElementById("password").value;
+    if (password === "murat4368") {
+      // Запуск музыки
+      var audio = new Audio('music.mp3');
+      audio.loop = true;
+      audio.play();
+
+      // Переход на галерею
+      window.location.href = "gallery.html";
+    } else {
+      alert("Неверный пароль!");
+    }
+  });
+</script>

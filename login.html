@@ -3,78 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вход в Murat`s Gallery</title>
+  <title>Murat's Gallery - Login</title>
   <style>
     body {
-      background-color: #0d0d0d;
+      background-color: #111;
       color: #fff;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
     }
-    h2 {
-      margin-bottom: 20px;
-      font-weight: 400;
-      color: #aaa;
-    }
-    input {
+    input, button {
       padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
       border: none;
-      border-radius: 8px;
-      margin: 10px 0;
-      width: 220px;
-      text-align: center;
       font-size: 16px;
     }
     button {
-      padding: 10px 25px;
-      border: none;
-      border-radius: 8px;
-      background-color: #444;
-      color: white;
-      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #666;
-    }
-    .error {
-      color: #f55;
-      margin-top: 10px;
-      font-size: 14px;
+      background-color: #1e90ff;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <h2>Введите пароль для входа</h2>
-  <input type="password" id="password" placeholder="Пароль">
-  <button onclick="checkPassword()">Войти</button>
-  <div class="error" id="errorMsg"></div>
+  <h1>Добро пожаловать в Murat's Gallery</h1>
+  <input type="password" id="password" placeholder="Введите пароль">
+  <button id="loginBtn">Войти</button>
 
   <script>
-    function checkPassword() {
-      const pass = document.getElementById('password').value.trim();
-      const correct = "murat4368"; // 🔐 Твой пароль
-      const errorMsg = document.getElementById('errorMsg');
+    document.getElementById("loginBtn").addEventListener("click", function() {
+      const password = document.getElementById("password").value;
+      if (password === "murat4368") {
+        // Запуск музыки
+        var audio = new Audio('music.mp3');
+        audio.loop = true;
+        audio.play().catch(e => {
+          console.log("Музыка не воспроизвелась автоматически, нажмите кнопку play на телефоне");
+        });
 
-      if (pass === correct) {
-        // ✅ Если пароль верный — перейти на главную страницу
-        window.location.href = "index.html";
+        // Переход на галерею
+        window.location.href = "gallery.html";
       } else {
-        // ❌ Ошибка — сообщение
-        errorMsg.textContent = "Неверный пароль. Попробуйте снова.";
-        document.getElementById('password').value = "";
+        alert("Неверный пароль!");
       }
-    }
-
-    // Нажатие Enter
-    document.getElementById('password').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') checkPassword();
     });
   </script>
+  <script>
+  document.getElementById("loginBtn").addEventListener("click", function() {
+    const password = document.getElementById("password").value;
+    if (password === "murat4368") {
+      // Запуск музыки
+      var audio = new Audio('music.mp3'); // если файл в корне
+      // var audio = new Audio('audio/music.mp3'); // если файл в папке audio
+      audio.loop = true;
+      audio.play().catch(e => console.log("Музыка не воспроизвелась автоматически"));
+
+      // Переход на галерею
+      window.location.href = "gallery.html";
+    } else {
+      alert("Неверный пароль!");
+    }
+  });
+</script>
+
 </body>
 </html>
