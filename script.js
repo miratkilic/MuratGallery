@@ -34,4 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
       btn.style.opacity = 1;
     }, 300);
   }
+  var audio = new Audio('music.mp3'); // если рядом с login.html
+// или
+var audio = new Audio('audio/music.mp3'); // если в папке audio
+
 });
