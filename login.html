@@ -52,5 +52,12 @@
       }
     });
   </script>
-</body>
+</body><button id="playBtn">Тест музыка</button>
+<script>
+document.getElementById("playBtn").addEventListener("click", function() {
+  var audio = new Audio('music.mp3');
+  audio.loop = true;
+  audio.play();
+});
+</script>
 </html>
